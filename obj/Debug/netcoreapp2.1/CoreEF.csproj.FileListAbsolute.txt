@@ -1,0 +1,11 @@
+C:\Users\emma.byrne\Downloads\CoreEF\obj\Debug\netcoreapp2.1\CoreEF.csprojAssemblyReference.cache
+C:\Users\emma.byrne\Downloads\CoreEF\obj\Debug\netcoreapp2.1\CoreEF.csproj.CoreCompileInputs.cache
+C:\Users\emma.byrne\Downloads\CoreEF\obj\Debug\netcoreapp2.1\CoreEF.AssemblyInfoInputs.cache
+C:\Users\emma.byrne\Downloads\CoreEF\obj\Debug\netcoreapp2.1\CoreEF.AssemblyInfo.cs
+C:\Users\emma.byrne\Downloads\CoreEF\bin\Debug\netcoreapp2.1\CoreEF.deps.json
+C:\Users\emma.byrne\Downloads\CoreEF\bin\Debug\netcoreapp2.1\CoreEF.runtimeconfig.json
+C:\Users\emma.byrne\Downloads\CoreEF\bin\Debug\netcoreapp2.1\CoreEF.runtimeconfig.dev.json
+C:\Users\emma.byrne\Downloads\CoreEF\bin\Debug\netcoreapp2.1\CoreEF.dll
+C:\Users\emma.byrne\Downloads\CoreEF\bin\Debug\netcoreapp2.1\CoreEF.pdb
+C:\Users\emma.byrne\Downloads\CoreEF\obj\Debug\netcoreapp2.1\CoreEF.dll
+C:\Users\emma.byrne\Downloads\CoreEF\obj\Debug\netcoreapp2.1\CoreEF.pdb

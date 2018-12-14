@@ -1,0 +1,62 @@
+[
+    {
+        "FirstName": "Bill",
+        "LastName": "Gates",
+        "DateOfBirth" : "1950-08-02",
+        "Height": "70.5",
+        "Weight": "60.0",
+        "GradeId": "1",
+        "Grade": {
+            "GradeName": "B",
+            "Section": "One"
+        }
+    },
+    {
+        "FirstName": "Juan",
+        "LastName": "Mata",
+        "DateOfBirth" : "1980-06-27",
+        "Height": "60.5",
+        "Weight": "50.0",
+        "GradeId": "2",
+        "Grade": {
+            "GradeName": "B",
+            "Section": "Two"
+        }
+    },
+    {
+        "FirstName": "David",
+        "LastName": "De Gea",
+        "DateOfBirth" : "1985-02-10",
+        "Height": "75.6",
+        "Weight": "80.0",
+        "GradeId": "3",
+        "Grade": {
+            "GradeName": "A",
+            "Section": "Three"
+        }
+    },
+    {
+        "FirstName": "Lauren",
+        "LastName": "James",
+        "DateOfBirth" : "1997-12-05",
+        "Height": "50.5",
+        "Weight": "40.0",
+        "GradeId": "4",
+        "Grade": {
+            "GradeName": "A",
+            "Section": "Four"
+        }
+    },
+    {
+        "FirstName": "Jess",
+        "LastName": "Sigsworth",
+        "DateOfBirth" : "1990-04-21",
+        "Height": "62.5",
+        "Weight": "55.5",
+        "GradeId": "5",
+        "Grade": {
+            "GradeName": "B",
+            "Section": "Five"
+        }
+    }
+]
