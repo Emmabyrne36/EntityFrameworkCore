@@ -19,7 +19,13 @@ FROM Courses;
 
 PRINT('This is the Grade table');
 SELECT *
-FROM Grade;
+FROM Grades;
+
+SELECT StudentId, LastName, DateOfBirth, FirstName, GradeId, Height, [Weight]  
+FROM Students
+INNER JOIN Grades
+ON Grades.Id = Students.GradeId
+WHERE Grades.GradeName LIKE '%A'
 
 -- -- To list all the tables in the DB
 -- SELECT DISTINCT TABLE_NAME FROM information_schema.TABLES;

@@ -2,6 +2,7 @@
 using System.Linq;
 using CoreEF.Data;
 using CoreEF.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace CoreEF
 {
@@ -19,6 +20,55 @@ namespace CoreEF
                 foreach (var s in allStudents)
                 {
                     Console.WriteLine(s);
+                }
+
+                Console.WriteLine();
+
+                var studentsAndGrades = context.Students.FromSql("Select * from Students")
+                                        .Include(s => s.Grade)
+                                        .ToList();
+                foreach (var sg in studentsAndGrades)
+                {
+                    Console.WriteLine(sg.FirstName + " " + sg.Grade.GradeName);
+                }
+
+                var goodStudents = from Student in context.Students
+                                   join Grade in context.Grades
+                                   on Student.GradeId equals Grade.Id
+                                   where Grade.GradeName == "A"
+                                   select new
+                                   {
+                                       firstName = Student.FirstName,
+                                       lastName = Student.LastName,
+                                       gradeName = Grade.GradeName
+                                   };
+                Console.WriteLine("\n\nThe best students are...");
+                foreach (var gs in goodStudents)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine(gs.firstName + " " + gs.lastName + "with a grade of " + gs.gradeName);
+                }
+
+                var orderedStudents = from Student in context.Students
+                                      join Grade in context.Grades
+                                      on Student.GradeId equals Grade.Id
+                                      where Grade.GradeName != "A"
+                                      orderby Grade.GradeName descending
+                                      select new StudentGrade()
+                                      {
+                                          StudentId = Student.StudentId,
+                                          FirstName = Student.FirstName,
+                                          LastName = Student.LastName,
+                                          DateOfBirth = Student.DateOfBirth,
+                                          Height = Student.Height,
+                                          Weight = Student.Weight,
+                                          GradeId = Grade.Id,
+                                          GradeName = Grade.GradeName
+                                      };
+
+                foreach (var os in orderedStudents)
+                {
+                    Console.WriteLine(os.FirstName + " " + os.GradeName);
                 }
 
                 // var studentsWithSameName = context.Students
@@ -44,5 +94,18 @@ namespace CoreEF
         {
             return seed.SeedUsers();
         }
+    }
+
+    public class StudentGrade
+    {
+        public int StudentId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public decimal Height { get; set; }
+        public float Weight { get; set; }
+        public int GradeId { get; set; }
+        public string GradeName { get; set; }
+
     }
 }
