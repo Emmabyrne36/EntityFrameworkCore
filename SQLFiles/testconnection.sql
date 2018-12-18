@@ -8,6 +8,7 @@
 -- -- Truncate table deletes all from the table and resets identity
 -- TRUNCATE TABLE Students;
 -- TRUNCATE TABLE Courses;
+-- TRUNCATE TABLE Grades;
 
 PRINT('This is the Students table');
 SELECT *

@@ -40,8 +40,6 @@ namespace CoreEF.Migrations
 
                     b.Property<string>("GradeName");
 
-                    b.Property<string>("Section");
-
                     b.HasKey("Id");
 
                     b.ToTable("Grades");

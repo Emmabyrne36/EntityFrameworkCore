@@ -5,10 +5,9 @@
         "DateOfBirth" : "1950-08-02",
         "Height": "70.5",
         "Weight": "60.0",
-        "GradeId": "1",
+        "GradeId": "2",
         "Grade": {
-            "GradeName": "B",
-            "Section": "One"
+            "GradeName": "B"
         }
     },
     {
@@ -19,8 +18,7 @@
         "Weight": "50.0",
         "GradeId": "2",
         "Grade": {
-            "GradeName": "B",
-            "Section": "Two"
+            "GradeName": "B"
         }
     },
     {
@@ -29,10 +27,9 @@
         "DateOfBirth" : "1985-02-10",
         "Height": "75.6",
         "Weight": "80.0",
-        "GradeId": "3",
+        "GradeId": "1",
         "Grade": {
-            "GradeName": "A",
-            "Section": "Three"
+            "GradeName": "A"
         }
     },
     {
@@ -41,10 +38,9 @@
         "DateOfBirth" : "1997-12-05",
         "Height": "50.5",
         "Weight": "40.0",
-        "GradeId": "4",
+        "GradeId": "1",
         "Grade": {
-            "GradeName": "A",
-            "Section": "Four"
+            "GradeName": "A"
         }
     },
     {
@@ -53,10 +49,31 @@
         "DateOfBirth" : "1990-04-21",
         "Height": "62.5",
         "Weight": "55.5",
-        "GradeId": "5",
+        "GradeId": "2",
         "Grade": {
-            "GradeName": "B",
-            "Section": "Five"
+            "GradeName": "B"
+        }
+    },
+    {
+        "FirstName": "Romelu",
+        "LastName": "Lukaku",
+        "DateOfBirth" : "1991-05-11",
+        "Height": "82.5",
+        "Weight": "75.5",
+        "GradeId": "3",
+        "Grade": {
+            "GradeName": "C"
+        }
+    },
+    {
+        "FirstName": "Chris",
+        "LastName": "Smalling",
+        "DateOfBirth" : "1989-01-09",
+        "Height": "79.5",
+        "Weight": "67.5",
+        "GradeId": "3",
+        "Grade": {
+            "GradeName": "C"
         }
     }
 ]

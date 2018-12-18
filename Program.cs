@@ -14,17 +14,9 @@ namespace CoreEF
             using (var context = new SchoolContext())
             {
                 Seed seed = new Seed(context);
-                Console.WriteLine(CallSeedUsers(seed)); // seed the db
+                Console.WriteLine(CallSeedUsers(seed)); // Seed the DB with the information
 
-                Console.WriteLine("");
-                // var allStudents = context.Students.Select(s => s.FirstName);
-                // foreach (var s in allStudents)
-                // {
-                //     Console.WriteLine(s);
-                // }
-
-                // Console.WriteLine();
-
+                // Get students with their grades
                 var studentsAndGrades = context.Students
                                                 .FromSql("Select * from Students")
                                                 .Include(s => s.Grade)
@@ -35,6 +27,7 @@ namespace CoreEF
                     Console.WriteLine($"{sg.FirstName} {sg.LastName}. Grade: {sg.Grade.GradeName}");
                 }
 
+                // Get the students with a grade of A
                 var goodStudents = from Student in context.Students
                                    join Grade in context.Grades
                                    on Student.GradeId equals Grade.Id
@@ -48,10 +41,10 @@ namespace CoreEF
                 Console.WriteLine("\nThe best students are...");
                 foreach (var gs in goodStudents)
                 {
-                    Console.WriteLine();
                     Console.WriteLine(gs.firstName + " " + gs.lastName + "with a grade of " + gs.gradeName);
                 }
 
+                // Order the students who do not have an A grade by their grade
                 var orderedStudents = from Student in context.Students
                                       join Grade in context.Grades
                                       on Student.GradeId equals Grade.Id
@@ -86,6 +79,7 @@ namespace CoreEF
                 // Console.WriteLine(context.Students.Select(n => n.Name).ToList()[0]);
                 // Console.ReadLine();
 
+                // Execute a stored procedure
                 string name = "David";
                 var storedProc = context.Students.FromSql($"GetStudents {name}").ToList();
                 Console.WriteLine(storedProc.First().FirstName);

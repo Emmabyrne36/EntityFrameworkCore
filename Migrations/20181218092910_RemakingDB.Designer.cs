@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreEF.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20181214100250_AddedGrades")]
-    partial class AddedGrades
+    [Migration("20181218092910_RemakingDB")]
+    partial class RemakingDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,11 +42,9 @@ namespace CoreEF.Migrations
 
                     b.Property<string>("GradeName");
 
-                    b.Property<string>("Section");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Grade");
+                    b.ToTable("Grades");
                 });
 
             modelBuilder.Entity("CoreEF.Models.Student", b =>
@@ -64,8 +62,6 @@ namespace CoreEF.Migrations
                     b.Property<decimal>("Height");
 
                     b.Property<string>("LastName");
-
-                    b.Property<byte[]>("Photo");
 
                     b.Property<float>("Weight");
 
