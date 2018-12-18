@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.SqlClient;
 using System.Linq;
 using CoreEF.Data;
 using CoreEF.Models;
@@ -16,20 +17,22 @@ namespace CoreEF
                 Console.WriteLine(CallSeedUsers(seed)); // seed the db
 
                 Console.WriteLine("");
-                var allStudents = context.Students.Select(s => s.FirstName);
-                foreach (var s in allStudents)
-                {
-                    Console.WriteLine(s);
-                }
+                // var allStudents = context.Students.Select(s => s.FirstName);
+                // foreach (var s in allStudents)
+                // {
+                //     Console.WriteLine(s);
+                // }
 
-                Console.WriteLine();
+                // Console.WriteLine();
 
-                var studentsAndGrades = context.Students.FromSql("Select * from Students")
-                                        .Include(s => s.Grade)
-                                        .ToList();
+                var studentsAndGrades = context.Students
+                                                .FromSql("Select * from Students")
+                                                .Include(s => s.Grade)
+                                                .OrderBy(s => s.Grade.GradeName)
+                                                .ToList();
                 foreach (var sg in studentsAndGrades)
                 {
-                    Console.WriteLine(sg.FirstName + " " + sg.Grade.GradeName);
+                    Console.WriteLine($"{sg.FirstName} {sg.LastName}. Grade: {sg.Grade.GradeName}");
                 }
 
                 var goodStudents = from Student in context.Students
@@ -42,7 +45,7 @@ namespace CoreEF
                                        lastName = Student.LastName,
                                        gradeName = Grade.GradeName
                                    };
-                Console.WriteLine("\n\nThe best students are...");
+                Console.WriteLine("\nThe best students are...");
                 foreach (var gs in goodStudents)
                 {
                     Console.WriteLine();
@@ -82,6 +85,16 @@ namespace CoreEF
 
                 // Console.WriteLine(context.Students.Select(n => n.Name).ToList()[0]);
                 // Console.ReadLine();
+
+                string name = "David";
+                var storedProc = context.Students.FromSql($"GetStudents {name}").ToList();
+                Console.WriteLine(storedProc.First().FirstName);
+
+                // Can also use
+                var param = new SqlParameter("@FirstName", name);
+                var storedProc2 = context.Students.FromSql("GetStudents @FirstName", param).ToList();
+                Console.WriteLine(storedProc2.First().FirstName);
+
             }
         }
 
