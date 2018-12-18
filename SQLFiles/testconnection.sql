@@ -30,3 +30,6 @@ FROM Grades;
 
 -- -- To list all the tables in the DB
 -- SELECT DISTINCT TABLE_NAME FROM information_schema.TABLES;
+
+
+-- select * from __EFMigrationsHistory

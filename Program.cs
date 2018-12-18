@@ -49,7 +49,7 @@ namespace CoreEF
                                       join Grade in context.Grades
                                       on Student.GradeId equals Grade.Id
                                       where Grade.GradeName != "A"
-                                      orderby Grade.GradeName descending
+                                      orderby Grade.GradeName
                                       select new StudentGrade()
                                       {
                                           StudentId = Student.StudentId,
@@ -62,23 +62,13 @@ namespace CoreEF
                                           GradeName = Grade.GradeName
                                       };
 
+                Console.WriteLine("\nThe other students from best to worst are:");
                 foreach (var os in orderedStudents)
                 {
                     Console.WriteLine(os.FirstName + " " + os.GradeName);
                 }
 
-                // var studentsWithSameName = context.Students
-                //                                     .Where(s => s.Name == GetName())
-                //                                     .ToList();
-
-                // foreach (var s in studentsWithSameName)
-                // {
-                //     Console.WriteLine(s.Name);
-                // }
-
-                // Console.WriteLine(context.Students.Select(n => n.Name).ToList()[0]);
-                // Console.ReadLine();
-
+                Console.WriteLine("\nOutput of the stored procedure:");
                 // Execute a stored procedure
                 string name = "David";
                 var storedProc = context.Students.FromSql($"GetStudents {name}").ToList();
@@ -90,11 +80,6 @@ namespace CoreEF
                 Console.WriteLine(storedProc2.First().FirstName);
 
             }
-        }
-
-        public static string GetName()
-        {
-            return "Bill";
         }
 
         public static string CallSeedUsers(Seed seed)
