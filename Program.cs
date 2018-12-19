@@ -79,6 +79,21 @@ namespace CoreEF
                 var storedProc2 = context.Students.FromSql("GetStudents @FirstName", param).ToList();
                 Console.WriteLine(storedProc2.First().FirstName);
 
+
+                // Get a list of all the students
+                Console.WriteLine();
+                var testStudent = context.Students.ToList();
+                foreach (var ts in testStudent)
+                {
+                    Console.WriteLine(ts.FirstName + " " + ts.LastName);
+                }
+
+                var tallStudents = context.Students.Where(s => s.Height > 70).ToList();
+                Console.WriteLine("\nThe tall students are:");
+                foreach (var ts in tallStudents)
+                {
+                    Console.WriteLine(ts.FirstName);
+                }
             }
         }
 

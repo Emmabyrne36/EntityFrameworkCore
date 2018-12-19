@@ -6,6 +6,9 @@
 -- DBCC CHECKIDENT('Courses', RESEED, 0);
 
 -- -- Truncate table deletes all from the table and resets identity
+-- DROP TABLE Students
+-- DROP TABLE Courses
+-- DROP TABLE Grades
 -- TRUNCATE TABLE Students;
 -- TRUNCATE TABLE Courses;
 -- TRUNCATE TABLE Grades;
@@ -33,3 +36,5 @@ FROM Grades;
 
 
 -- select * from __EFMigrationsHistory
+-- To get a list of the tables
+-- SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE'

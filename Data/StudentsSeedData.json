@@ -7,6 +7,7 @@
         "Weight": "60.0",
         "GradeId": "2",
         "Grade": {
+            "Id": "2",
             "GradeName": "B"
         }
     },
@@ -18,6 +19,7 @@
         "Weight": "50.0",
         "GradeId": "2",
         "Grade": {
+            "Id": "2",
             "GradeName": "B"
         }
     },
@@ -29,6 +31,7 @@
         "Weight": "80.0",
         "GradeId": "1",
         "Grade": {
+            "Id": "1",
             "GradeName": "A"
         }
     },
@@ -40,6 +43,7 @@
         "Weight": "40.0",
         "GradeId": "1",
         "Grade": {
+            "Id": "1",
             "GradeName": "A"
         }
     },
@@ -51,6 +55,7 @@
         "Weight": "55.5",
         "GradeId": "2",
         "Grade": {
+            "Id": "2",
             "GradeName": "B"
         }
     },
@@ -62,6 +67,7 @@
         "Weight": "75.5",
         "GradeId": "3",
         "Grade": {
+            "Id": "3",
             "GradeName": "C"
         }
     },
@@ -73,6 +79,7 @@
         "Weight": "67.5",
         "GradeId": "3",
         "Grade": {
+            "Id": "3",
             "GradeName": "C"
         }
     }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CoreEF.Migrations
 {
-    public partial class RemakingDB : Migration
+    public partial class UpdatedGradesTable : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -25,13 +25,12 @@ namespace CoreEF.Migrations
                 name: "Grades",
                 columns: table => new
                 {
+                    GradeName = table.Column<string>(nullable: false),
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    GradeName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Grades", x => x.Id);
+                    table.PrimaryKey("PK_Grades", x => x.GradeName);
                 });
 
             migrationBuilder.CreateTable(
@@ -45,23 +44,24 @@ namespace CoreEF.Migrations
                     DateOfBirth = table.Column<DateTime>(nullable: false),
                     Height = table.Column<decimal>(nullable: false),
                     Weight = table.Column<float>(nullable: false),
-                    GradeId = table.Column<int>(nullable: false)
+                    GradeId = table.Column<int>(nullable: false),
+                    GradeName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.StudentId);
                     table.ForeignKey(
-                        name: "FK_Students_Grades_GradeId",
-                        column: x => x.GradeId,
+                        name: "FK_Students_Grades_GradeName",
+                        column: x => x.GradeName,
                         principalTable: "Grades",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "GradeName",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Students_GradeId",
+                name: "IX_Students_GradeName",
                 table: "Students",
-                column: "GradeId");
+                column: "GradeName");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

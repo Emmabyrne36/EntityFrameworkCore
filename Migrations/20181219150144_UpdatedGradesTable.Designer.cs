@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoreEF.Migrations
 {
     [DbContext(typeof(SchoolContext))]
-    [Migration("20181218092910_RemakingDB")]
-    partial class RemakingDB
+    [Migration("20181219150144_UpdatedGradesTable")]
+    partial class UpdatedGradesTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,13 +36,12 @@ namespace CoreEF.Migrations
 
             modelBuilder.Entity("CoreEF.Models.Grade", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("GradeName")
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("GradeName");
+                    b.Property<int>("Id");
 
-                    b.HasKey("Id");
+                    b.HasKey("GradeName");
 
                     b.ToTable("Grades");
                 });
@@ -59,6 +58,8 @@ namespace CoreEF.Migrations
 
                     b.Property<int>("GradeId");
 
+                    b.Property<string>("GradeName");
+
                     b.Property<decimal>("Height");
 
                     b.Property<string>("LastName");
@@ -67,7 +68,7 @@ namespace CoreEF.Migrations
 
                     b.HasKey("StudentId");
 
-                    b.HasIndex("GradeId");
+                    b.HasIndex("GradeName");
 
                     b.ToTable("Students");
                 });
@@ -76,8 +77,7 @@ namespace CoreEF.Migrations
                 {
                     b.HasOne("CoreEF.Models.Grade", "Grade")
                         .WithMany("Students")
-                        .HasForeignKey("GradeId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("GradeName");
                 });
 #pragma warning restore 612, 618
         }
