@@ -15,7 +15,6 @@ namespace CoreEF.Data
 
         public string SeedUsers()
         {
-            var v = _context.Students.ToList();
             // Only seed db if there are no users
             if (!_context.Students.Any() && !_context.Courses.Any())
             {
