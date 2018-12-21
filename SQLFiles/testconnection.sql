@@ -15,15 +15,18 @@
 
 PRINT('This is the Students table');
 SELECT *
-FROM Students;
+FROM dbo.Students;
 
 PRINT('This is the Courses table');
 SELECT *
-FROM Courses;
+FROM dbo.Courses;
 
 PRINT('This is the Grade table');
 SELECT *
-FROM Grades;
+FROM dbo.Grades;
+
+
+select * from dbo.SchoolTable;
 
 -- SELECT StudentId, LastName, DateOfBirth, FirstName, GradeId, Height, [Weight]  
 -- FROM Students

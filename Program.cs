@@ -95,6 +95,20 @@ namespace CoreEF
                 {
                     Console.WriteLine(ts.FirstName);
                 }
+
+
+                if (!context.School.Any())
+                {
+                    var newSchool = new School()
+                    {
+                        Name = "Test School",
+                        Address = "123 Test Lane"
+                    };
+                    context.School.Add(newSchool);
+                    context.SaveChanges();
+                }
+
+                Console.WriteLine(context.School.ToList()[0].Name + " " + context.School.ToList()[0].Address);
             }
         }
 
