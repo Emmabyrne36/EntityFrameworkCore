@@ -1,0 +1,1 @@
+SELECT Top(20) * FROM Dimension.City;

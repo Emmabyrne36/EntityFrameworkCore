@@ -5,12 +5,32 @@ using System.Linq;
 using CoreEF.Data;
 using CoreEF.Models;
 using Microsoft.EntityFrameworkCore;
+using CoreEF.WideWorldModel;
 
 namespace CoreEF
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            // SchoolDBData();
+            WWImportersDBData();
+        }
+
+        private static void WWImportersDBData()
+        {
+            using (var context = new WideWorldImportersContext())
+            {
+                var regionList = context.City.Select(c => c.StateProvince).Distinct().ToList();
+
+                foreach (var regions in regionList)
+                {
+                    Console.WriteLine(regions);
+                }
+            }
+        }
+
+        private static void SchoolDBData()
         {
             using (var context = new SchoolContext())
             {
